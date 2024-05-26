@@ -6,6 +6,7 @@ export default function SignUp() {
     const [email, setEmail] = useState('');
     const [lastname, setLastname] = useState('');
 
+    //register the user after click of signup button in the database. 
     async function handleSubmit(ev){
         ev.preventDefault();
         const response = await fetch('http://localhost:4000/signup', {
