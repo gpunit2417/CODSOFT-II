@@ -42,6 +42,8 @@ export default function CreateQuiz() {
     setQuestions(newQuestions);
   };
 
+
+  //send the quiz data to the mongodb database 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -62,6 +64,7 @@ export default function CreateQuiz() {
       console.log(data);
       alert("Quiz Created Successfully.")
 
+      //clear the form after successfully created the quiz
       setQuizName("");
       setNumberOfQuestions(0);
       setQuestions([]);
@@ -119,6 +122,7 @@ export default function CreateQuiz() {
           Create Questions
         </button>
 
+{/* Question form visibles after clicking on Create Questions button */}
         {isQuestionFormVisible && (
           <div>
             {questions.map((q, index) => (
