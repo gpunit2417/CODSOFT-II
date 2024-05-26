@@ -14,7 +14,8 @@ export default function Question({
 
   return (
     <div>
-      <h2>{question}</h2>
+      {/* displays the question */}
+      <h2>{question}</h2> 
       <ul
         style={{
           listStyle: "none",
@@ -23,6 +24,7 @@ export default function Question({
           textAlign: "left",
         }}
       >
+        {/* displays the options  */}
         {options.map((option, index) => (
           <li key={index}>
             <label>
@@ -37,8 +39,6 @@ export default function Question({
           </li>
         ))}
       </ul>
-      {/* {onPrevious && <button onClick={onPrevious}>Previous</button>} */}
-      {/* {onNext && <button onClick={onNext}>Next</button>} */}
     </div>
   );
 }
