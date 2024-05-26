@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import HomePage from "./components/HomePage";
+import CreateQuiz from "./components/CreateQuiz";
+import Play from "./components/Play";
+import Result from "./components/Result";
+import QuizList from "./components/QuizList"
+import About from "./components/About";
+import { Footer } from "./components/Footer";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar />
+        <Route exact path="/" component={HomePage} />
+        <Route path='/login' component={Login}/>
+        <Route path="/signup" component={SignUp} />
+        <Route path="/create" component={CreateQuiz} />
+        <Route path="/play/:quizId" component={Play} />
+        <Route path="/result" component={Result} />
+        <Route path="/select-quiz" component={QuizList} />
+        <Route path="/quiz" component={QuizList} />
+        <Route path="/about" component={About} />
+        <Footer/>
+      </Router>
     </div>
   );
 }
