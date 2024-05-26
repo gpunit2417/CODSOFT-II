@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema, model} = mongoose;
 
+//defined the user model structure for the signup
 const UserSchema = new Schema({
     firstname: {type: String, required: true, min: 4},
     lastname: {type: String, required: true, min: 4},
