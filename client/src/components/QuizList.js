@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 export default function QuizList() {
   const [quizzes, setQuizzes] = useState([]);
 
+  // fethces the quiz list as available in the database and render on the browser.
   useEffect(() => {
     const fetchQuizzes = async () => {
       try {
@@ -28,6 +29,7 @@ export default function QuizList() {
     <div style={{ margin: '0 0 145px 0' }}>
       <h1 style={{ margin: "100px 0 30px 0" }}>Select a Quiz</h1>
       <div>
+        {/* display the quiz name based on their _id object */}
         {quizzes.map((quiz) => (
           <div
             key={quiz._id}
