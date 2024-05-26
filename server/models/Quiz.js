@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//defined the structure of quiz model to store into database.
 const quizSchema = new mongoose.Schema({
   name: { type: String, required: true },
   questions: [
