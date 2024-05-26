@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export default function HomePage() {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
 
+  //handles the creation of quiz before signup and login
   const handleCreateQuiz = () => {
     if (!isLoggedIn) {
       alert("Please login to create a quiz!");
@@ -11,6 +12,7 @@ export default function HomePage() {
     window.location.href = "/create";
   };
 
+  //handles the play of quiz before login
   const handlePlayQuiz = () => {
     if (!isLoggedIn) {
       alert("Please login to play a quiz!");
