@@ -8,6 +8,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const history = useHistory();
 
+  //fetched the data of the user and matches the credentials
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
