@@ -8,6 +8,8 @@ export default function Play() {
   const [questions, setQuestions] = useState([]);
   const { quizId } = useParams();
 
+
+  //fetches the question based on quizId from the mongodb database
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
@@ -48,6 +50,7 @@ export default function Play() {
     setAnswers({ ...answers, [currentQuestionIndex]: answer });
   };
 
+  //matches the answer 
   const handleSubmit = (e) => {
     e.preventDefault();
     const score = questions.reduce((total, question, index) => {
@@ -91,6 +94,7 @@ export default function Play() {
             background: "linear-gradient(to right, #005aa7, #fffde4)",
           }}
         >
+          {/* will display the questions and options fetched from the database in the Question component as props passed from this component*/}
           <Question
             question={questions[currentQuestionIndex].question}
             options={questions[currentQuestionIndex].options}
