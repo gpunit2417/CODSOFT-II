@@ -69,7 +69,7 @@ export default function Play() {
     <div
       style={{
         background:
-          "linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6)",
+          "#222629",
           margin: '0 0 11px 0'
       }}
     >
@@ -78,6 +78,7 @@ export default function Play() {
           textAlign: "center",
           fontSize: "2rem",
           margin: "80px 0 20px 0",
+          color: '#16FFBD'
         }}
       >
         Quiz Questions
@@ -91,7 +92,7 @@ export default function Play() {
             width: "50vw",
             display: "inline-block",
             borderRadius: ".5rem",
-            background: "linear-gradient(to right, #005aa7, #fffde4)",
+            background: "#16FFBD",
           }}
         >
           {/* will display the questions and options fetched from the database in the Question component as props passed from this component*/}
@@ -106,24 +107,23 @@ export default function Play() {
           />
           {currentQuestionIndex > 0 && (
             <button
-              className="btn btn-primary"
+              
               onClick={handlePrevious}
-              style={{ margin: "10px" }}
+              style={{ margin: "10px", backgroundColor: '#222629' , color: 'white'}}
             >
               Previous
             </button>
           )}
           {currentQuestionIndex < questions.length - 1 && (
             <button
-              className="btn btn-primary"
               onClick={handleNext}
-              style={{ margin: "10px" }}
+              style={{ margin: "10px", backgroundColor: '#222629' , color: 'white'}}
             >
               Next
             </button>
           )}
           {currentQuestionIndex === questions.length - 1 && (
-            <button className="btn btn-primary" onClick={handleSubmit}>
+            <button onClick={handleSubmit} style={{ margin: "10px", backgroundColor: '#222629' , color: 'white'}}>
               Submit Quiz
             </button>
           )}
