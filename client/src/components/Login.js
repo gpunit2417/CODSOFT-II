@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [firstname, setFirstName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const history = useHistory();
@@ -17,7 +17,7 @@ const Login = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ firstname, email, password }),
       });
       const data = await response.json();
       if (response.ok) {
@@ -32,6 +32,7 @@ const Login = () => {
     } catch (error) {
       console.error("Login error:", error);
       setError("An unexpected error occurred. Please try again later.");
+      // alert("")
     }
   };
 
@@ -44,12 +45,12 @@ const Login = () => {
         <div
           style={{ display: "flex", flexDirection: "column", margin: "20px 0" }}
         >
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="firstname">First Name:</label>
           <input
             type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            id="firstname"
+            value={firstname}
+            onChange={(e) => setFirstName(e.target.value)}
             required
             style={{
               padding: "10px",
