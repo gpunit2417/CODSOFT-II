@@ -24,7 +24,7 @@ export default function HomePage() {
   return (
     <div
       style={{
-        background: "linear-gradient(to right, #1fa2ff, #12d8fa, #a6ffcb)",
+        background: "#2E3944",
         height: "90vh",
       }}
     >
@@ -34,7 +34,7 @@ export default function HomePage() {
       <div
         className="card"
         style={{
-          background: "linear-gradient(to right, #0cebeb, #20e3b2, #29ffc6)",
+          background: "#748D92",
           padding: "20px",
           borderRadius: "5px",
           boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)",
@@ -50,7 +50,7 @@ export default function HomePage() {
           onClick={handleCreateQuiz}
           className="btn btn-primary"
           style={{
-            backgroundColor: "#1fa2ff",
+            backgroundColor: "#3AAFA9",
             color: "white",
             padding: "10px 20px",
             borderRadius: "5px",
@@ -66,7 +66,7 @@ export default function HomePage() {
           onClick={handlePlayQuiz}
           className="btn btn-primary"
           style={{
-            backgroundColor: "#1fa2ff",
+            backgroundColor: "#3AAFA9",
             color: "white",
             padding: "10px 20px",
             borderRadius: "5px",
