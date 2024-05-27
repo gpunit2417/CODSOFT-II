@@ -26,7 +26,7 @@ export default function Question({
       >
         {/* displays the options  */}
         {options.map((option, index) => (
-          <li key={index}>
+          <li key={index} >
             <label>
               <input
                 type="radio"
