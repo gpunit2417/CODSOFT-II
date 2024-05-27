@@ -56,7 +56,7 @@ app.post("/login", async (req, res) => {
     jwt.sign({ firstname, id: userDoc._id }, secret, {}, (err, token) => {
       if (err) throw err;
       res.cookie("token", token).json({
-        id: userDoc._id,
+        id: userDoc._id, 
         firstname,
       });
     });
@@ -71,7 +71,7 @@ app.post("/api/quizzes", async (req, res) => {
     const { name, questions } = req.body;
     const quiz = new Quiz({ name, questions });
     await quiz.save();
-    res.status(201).json(quiz);
+    res.status(201).json(quiz); 
   } catch (e) {
     res.status(400).json({ message: e.message });
   }
