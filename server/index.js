@@ -50,18 +50,28 @@ app.post("/signup", async (req, res) => {
 //post request to match the user credentials from the database for the existing user.
 app.post("/login", async (req, res) => {
   const { firstname, email, password } = req.body;
-  const userDoc = await User.findOne({ email });
-  const passOk = bcrypt.compareSync(password, userDoc.password);
-  if (passOk) {
-    jwt.sign({ firstname, id: userDoc._id }, secret, {}, (err, token) => {
-      if (err) throw err;
-      res.cookie("token", token).json({
-        id: userDoc._id, 
-        firstname,
+  try {
+    const userDoc = await User.findOne({ email });
+    if (!userDoc) {
+      return res.status(400).json({ message: "User not found" });
+    }
+
+    const passOk = bcrypt.compareSync(password, userDoc.password);
+    const firstNameOk = userDoc.firstname === firstname;
+
+    if (passOk && firstNameOk) {
+      jwt.sign({ firstname, id: userDoc._id }, secret, {}, (err, token) => {
+        if (err) throw err;
+        res.cookie("token", token).json({
+          id: userDoc._id,
+          firstname, 
+        });
       });
-    });
-  } else {
-    res.status(400).json("wrong credentials");
+    } else {
+      res.status(400).json({ message: "Wrong credentials" });
+    }
+  } catch (e) {
+    res.status(500).json({ message: "An unexpected error occurred" });
   }
 });
 
@@ -71,10 +81,10 @@ app.post("/api/quizzes", async (req, res) => {
     const { name, questions } = req.body;
     const quiz = new Quiz({ name, questions });
     await quiz.save();
-    res.status(201).json(quiz); 
+    res.status(201).json(quiz);
   } catch (e) {
     res.status(400).json({ message: e.message });
-  }
+  } 
 });
 
 // Fetch All Quizzes Route
